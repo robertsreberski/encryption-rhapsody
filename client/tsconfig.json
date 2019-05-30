@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "sourceMap": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es2015", "es2017", "esnext.asynciterable", "dom"],
+    "noImplicitAny": true,
+    "removeComments": true,
+    "rootDir": "./src",
+    "jsx": "react",
+    "baseUrl": "./",
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Additional Checks */
+    //    "noUnusedLocals": true,
+    //    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": false,
+    "esModuleInterop": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+
+    "noEmitHelpers": false,
+    "downlevelIteration": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": ["./node_modules", "./__tests__"]
+}

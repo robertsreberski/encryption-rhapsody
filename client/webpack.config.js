@@ -7,7 +7,7 @@ const base = {
   target: 'electron-renderer',
   entry: ["react-hot-loader/patch", "./src/index.tsx"],
   output: {
-    filename: 'bundle.[hash].js',
+    filename: process.env.__ENV__ === 'dev' ? "bundle.js" : 'bundle.[hash].js',
     path: __dirname + "/dist"
   },
 

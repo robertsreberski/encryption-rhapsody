@@ -6,6 +6,21 @@ import rootSaga from './sagas'
 
 const sagaMiddleware = createSagaMiddleware()
 
+const mockState: AppState = {
+  files: [
+    {
+      id: 1,
+      name: 'Test file',
+      size: 300,
+    },
+    {
+      id: 2,
+      name: 'Test file2',
+      size: 301,
+    },
+  ],
+}
+
 const initStore: (initialState?: AppState) => { store: Store<AppState> } = (
   state = {} as AppState
 ) => {

@@ -1,15 +1,24 @@
 import * as React from 'react'
+import { connect } from 'react-redux'
 import FileTable from '../../components/FileTable'
 import { Container, GlobalStyles } from './styles'
 
-interface IProps {}
+const mapStateToProps = () => {}
+const mapDispatchToProps = () => {}
 
-const FileTransfer: React.FC = () => (
+interface Props {
+    files: IFile[]
+}
+
+const FileTransfer: React.FC<> = () => (
   <Container>
-    <GlobalStyles/>
+    <GlobalStyles />
     <h1>File transfer screen</h1>
-    <FileTable/>
+    <FileTable />
   </Container>
 )
 
-export default FileTransfer
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FileTransfer)

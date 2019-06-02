@@ -26,6 +26,8 @@ const createIv = (mode: Mode) => {
   return crypto.randomBytes(mode !== Mode.ECB ? 16 : 0)
 }
 
+export const DIST_FOLDER = './encrypted'
+
 export const encrypt: (
   input: ReadStream,
   output: WriteStream,

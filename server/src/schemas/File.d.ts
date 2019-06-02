@@ -2,8 +2,8 @@ interface IFile {
   id: string
   name?: string
   mode?: string
-  iv?: string
-  sessionKey?: string
+  iv?: Buffer
+  sessionKey?: Buffer
   progress?: number
 }
 

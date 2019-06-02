@@ -3,6 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import appReducer from './reducer'
 import logger from 'redux-logger'
 import rootSagas from './sagas'
+import initServerApi from './api'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -22,6 +23,7 @@ const initStore: (
   )
 
   sagaMiddleware.run(rootSagas)
+  initServerApi(store)
 
   return { store }
 }

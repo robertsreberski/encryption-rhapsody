@@ -2,12 +2,15 @@ import * as React from 'react'
 import { Cell, Row, TableBody } from './styles'
 
 type Props = {
+  selected?: number
+  onSelect?: (index: number) => void
+
   headers: string[]
   centered?: boolean[]
   data: (string | number | React.ReactElement)[][]
 }
 
-const Table: React.FC<Props> = ({ centered, headers, data }) => {
+const Table: React.FC<Props> = ({ selected, onSelect, centered, headers, data }) => {
   return (
     <>
       <TableBody>
@@ -16,8 +19,8 @@ const Table: React.FC<Props> = ({ centered, headers, data }) => {
             <th>{header}</th>
           ))}
         </tr>
-        {data.map(row => (
-          <Row>
+        {data.map((row, index) => (
+          <Row selected={index === selected} onClick={onSelect ? () => onSelect(index) : undefined}>
             {row.map((cell, colNumber) => (
               <Cell centered={centered && centered[colNumber]}>{cell}</Cell>
             ))}

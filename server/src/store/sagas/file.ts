@@ -4,11 +4,8 @@ import uuidv4 = require('uuid/v4')
 import progress = require('progress-stream')
 import commitFile = FileActions.commitFile
 import * as fs from 'fs'
-import { encrypt, Mode } from '../../algorithms/encrypt'
+import { DIST_FOLDER, encrypt, Mode } from '../../algorithms/encrypt'
 import { eventChannel, END } from '@redux-saga/core'
-import WriteStream = NodeJS.WriteStream
-
-const distFolder = './encrypted'
 
 function* assertDistFolder(folderName: string) {
   const distExists = yield call(fs.existsSync, folderName)
@@ -30,16 +27,16 @@ function* encryptFile({
     })
   )
 
-  yield call(assertDistFolder, distFolder)
+  yield call(assertDistFolder, DIST_FOLDER)
 
   const stats = yield call(fs.statSync, path)
   const progressStream = yield call(progress, { length: stats.size, time: 500 })
   const inputStream = yield call(fs.createReadStream, path)
-  const outputStream = yield call(fs.createWriteStream, `${distFolder}/${filename}`)
+  const outputStream = yield call(fs.createWriteStream, `${DIST_FOLDER}/${filename}`)
 
   const channel = eventChannel(emitter => {
     console.log('emitter started')
-    progressStream.on('progress', (data: any) => emitter(data.percentage))
+    progressStream.on('progress', (data: { percentage: number }) => emitter(data.percentage))
     outputStream.on('close', () => {
       emitter(END)
     })

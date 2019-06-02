@@ -8,3 +8,10 @@ export const GetAllFiles = createSelector(
     return Object.values(files)
   }
 )
+
+export const GetEncryptedFiles = createSelector(
+  GetAllFiles,
+  files => {
+    return files.filter(file => file.progress === 100)
+  }
+)

@@ -30,3 +30,23 @@ export const Button = styled.button<{ accent?: boolean; disabled?: boolean }>`
       pointer-events: none;
     `};
 `
+
+export const AbsoluteFab = styled.button`
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: ${Theme.space.md};
+  width: 20%;
+  margin: 0 auto;
+
+  padding: ${Theme.space.lg} ${Theme.space.xxl};
+
+  font-size: 16px;
+  font-weight: 500;
+  color: ${Theme.color.text.black};
+  box-shadow: ${Theme.color.shadow.light};
+  border-radius: 24px;
+
+  cursor: pointer;
+  outline: none;
+`

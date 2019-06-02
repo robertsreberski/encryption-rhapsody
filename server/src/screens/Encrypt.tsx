@@ -6,6 +6,7 @@ import { Mode } from '../algorithms/encrypt'
 import { Dispatch } from 'redux'
 import { GetAllFiles } from '../store/reducer/selectors/file'
 import { FileActions } from '../store/reducer/actions/file'
+import { useState } from 'react'
 
 type StateProps = {
   files: [string, string, string, string][]
@@ -32,10 +33,13 @@ const mapDispatchToProps: (dispatch: Dispatch) => DispatchProps = dispatch => ({
 type Props = StateProps & DispatchProps & OwnProps
 
 const EncryptScreen: React.FC<Props> = ({ files, onAdd }) => {
+  const [selected, onSelect] = useState(-1)
   return (
     <>
       <AddFileBar onAdd={onAdd} />
       <Table
+        selected={selected}
+        onSelect={onSelect}
         headers={['ID', 'Name', 'Mode', 'Progress']}
         centered={[false, false, true, true]}
         data={files}

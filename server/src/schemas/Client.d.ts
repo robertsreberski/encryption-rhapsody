@@ -1,6 +1,7 @@
 interface IClient {
   id: string
-  name: string
+  ip: string
+  port: number
   publicKey: string
 }
 

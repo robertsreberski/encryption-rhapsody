@@ -7,5 +7,5 @@ export const prepareKey: (publicKey: string, encryptionKey: string) => string = 
   const encryptor = new NodeRSA({ b: 512 })
   encryptor.importKey(publicKey, 'public')
 
-  return encryptor.encrypt(encryptionKey, 'hex')
+  return encryptor.encrypt(Buffer.from(encryptionKey, 'hex')).toString('hex')
 }

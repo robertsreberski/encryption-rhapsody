@@ -1,32 +1,26 @@
 import * as React from 'react'
 import { Table, Row, Cell } from './styles'
 
-const FileTable = () => (
+interface Props {
+  files: IFile[]
+}
+
+const FileTable: React.FC<Props> = ({ files }) => (
   <Table>
     <Row>
       <th> ID </th>
-      <th> Server name </th>
       <th> Filename </th>
+      <th> Size </th>
       <th> Progress </th>
     </Row>
-    <Row>
-      <Cell>Data1</Cell>
-      <Cell>Data2</Cell>
-      <Cell>Data3</Cell>
-      <Cell>Data4</Cell>
-    </Row>
-    <Row>
-      <Cell>Data1</Cell>
-      <Cell>Data2</Cell>
-      <Cell>Data3</Cell>
-      <Cell>Data4</Cell>
-    </Row>
-    <Row>
-      <Cell>Data1</Cell>
-      <Cell>Data2</Cell>
-      <Cell>Data3</Cell>
-      <Cell>Data4</Cell>
-    </Row>
+    {files.map(file => (
+      <Row>
+        <Cell>{file.id}</Cell>
+        <Cell>{file.name}</Cell>
+        <Cell>{file.size}</Cell>
+        <Cell>{file.progress}</Cell>
+      </Row>
+    ))}
   </Table>
 )
 

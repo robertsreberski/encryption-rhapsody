@@ -8,9 +8,3 @@ export const Container = styled.div`
   width: 100%;
   background-color: #fff;
 `
-export const GlobalStyles = createGlobalStyle`
-    body {
-        font-family: 'Montserrat', 'Arial', sans-serif;
-        margin: 0;
-    }
-`

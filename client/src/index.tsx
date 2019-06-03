@@ -1,5 +1,5 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import FileTransfer from './screens/FileTransfer'
+import App from './App'
 
-ReactDOM.render(<FileTransfer />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))

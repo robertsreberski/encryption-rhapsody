@@ -1,4 +1,4 @@
-interface IncomingTransfer {
+interface ITransferMeta {
   mode: string
   key: Buffer
   iv: Buffer
@@ -10,4 +10,9 @@ interface IncomingTransfer {
 
 interface OutgoingTransfer {
     publicKey: string
+}
+
+interface IServer {
+    host: string
+    port: number
 }

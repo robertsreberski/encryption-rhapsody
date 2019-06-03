@@ -1,7 +1,8 @@
 interface AppState {
     publicKey?: string
     privateKey?: string
-    files: IFiles[]
+    server?: IServer
+    files: IFileState
 }
 
 interface Action<T>{

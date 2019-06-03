@@ -20,8 +20,8 @@ function* transferFile({
   yield put(
     commitTransfer({
       id,
-      client,
-      file,
+      client: client.id,
+      file: file.id,
       startedAt: new Date(),
     })
   )

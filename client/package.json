@@ -7,7 +7,7 @@
     "start": "__ENV__=dev npm-run-all -p run:dev-server run:electron",
     "deploy": "npm-run-all build:prod run:electron",
     "run:electron": "electron .",
-    "run:dev-server": "webpack-dev-server",
+    "run:dev-server": "webpack-dev-server --port 8082",
     "build:prod": "rm -rf ./dist && __ENV__=prod webpack"
   },
   "author": "",

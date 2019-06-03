@@ -12,7 +12,7 @@ export const GetAllTransfers = createSelector(
     return Object.values(transfers).map(transfer => ({
       ...transfer,
       client: clients[transfer.client as string],
-      files: files[transfer.file as string],
+      file: files[transfer.file as string],
     }))
   }
 )

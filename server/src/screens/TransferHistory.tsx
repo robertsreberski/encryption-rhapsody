@@ -26,11 +26,11 @@ const TransferHistoryScreen: React.FC<Props> = ({ transfers }) => {
     headers: ['Client IP/PORT', 'File Name', 'Progress'],
     data: transfers.map(
       transfer =>
-        [(transfer.client as IClient).id, (transfer.file as IFile).id, transfer.progress] as [
-          string,
-          string,
-          number
-        ]
+        [
+          transfer.client ? (transfer.client as IClient).id : 'null',
+          transfer.file ? (transfer.file as IFile).name : 'null',
+          transfer.progress,
+        ] as [string, string, number]
     ),
   }
 

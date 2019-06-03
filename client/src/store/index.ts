@@ -2,26 +2,27 @@ import { applyMiddleware, compose, createStore, Store } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import logger from 'redux-logger'
 import appReducer from './reducers'
-//import rootSaga from './sagas'
+import { startServer } from './api'
+
 
 const sagaMiddleware = createSagaMiddleware()
 
 const mockState: AppState = {
   files: {
     1: {
-      id: 1,
+      id: '1',
       name: 'Test file',
       size: 300,
       progress: 0,
     },
     2: {
-      id: 2,
+      id: '2',
       name: 'Test file2',
       size: 301,
       progress: 0,
     },
     3: {
-      id: 2,
+      id: '2',
       name: 'Test file3',
       size: 301,
       progress: 0,
@@ -42,8 +43,8 @@ const initStore: (initialState?: AppState) => { store: Store<AppState> } = (
         : applyMiddleware(sagaMiddleware)
     )
   )
-
-  //sagaMiddleware.run(rootSaga)
+  
+  startServer(store)
 
   return { store }
 }

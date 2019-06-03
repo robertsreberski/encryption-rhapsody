@@ -11,26 +11,28 @@ export enum Mode {
   OFB = 'OFB',
 }
 
-const getAlgorithm = (size: number = 128, mode: Mode = Mode.ECB) =>
-  `${baseAlgorithm}-${size}-${mode}`
+const getAlgorithm = (mode: Mode = Mode.ECB) =>
+  `${baseAlgorithm}-128-${mode}`.toUpperCase()
 
 const decrypt: (
   input: fs.ReadStream,
   output: fs.WriteStream,
   mode: Mode,
-  size: number,
   key: Buffer,
   iv: Buffer,
-  progress?: WriteStream
-) => void = (input, output, mode, size, key, iv, progress) => {
+  progress: WriteStream
+) => void = (input, output, mode, key, iv, progress) => {
   let decipher
+
+  console.log('Current mode: ', getAlgorithm(mode))
+  console.log('Lengths: ', iv.length, key.length)
   if (mode === Mode.ECB) {
-    decipher = crypto.createDecipheriv(getAlgorithm(size, mode), key, '')
+    decipher = crypto.createDecipheriv(getAlgorithm(mode), key, '')
   } else {
-    decipher = crypto.createDecipheriv(getAlgorithm(size, mode), key, iv)
+    decipher = crypto.createDecipheriv(getAlgorithm(mode), key, iv)
   }
 
-  input.pipe(decipher).pipe(output)
+  input.pipe(decipher).pipe(progress).pipe(output)
 }
 
 export default decrypt

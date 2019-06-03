@@ -1,14 +1,13 @@
 import * as net from 'net'
 import { Store } from 'redux'
 import through = require('through2')
-import { callbackify } from 'util'
+
 
 const DELIMITER = '\n'
 
 export const subscribeToFiles: (
-  callback: (stream: any, metadata: ITransferMeta) => void,
-  store: Store
-) => void = (callback, store) => {
+  callback: (stream: any, metadata: ITransferMeta) => void
+) => void = (callback) => {
   const server = net.createServer(socket => {
     const buffer = {
       meta: '',
@@ -19,14 +18,16 @@ export const subscribeToFiles: (
 
     socket.on('data', data => {
       const dataString = data.toString()
-
+      console.log('Jest transfer')  
       if (fileDescription) {
         buffer.stream.write(data)
       } else if (dataString.includes(DELIMITER)) {
         const [endOfData, startOfFile] = dataString.split(DELIMITER)
 
         fileDescription = JSON.parse((buffer.meta += endOfData))
+       
         if (fileDescription !== null) {
+          console.log('Metadata json: ', fileDescription)
           callback(buffer.stream, fileDescription)
         }
 
@@ -36,6 +37,6 @@ export const subscribeToFiles: (
       }
     })
   })
-
-  server.listen(4848)
+  console.log('Stworzono serwer')
+  server.listen(4849)
 }

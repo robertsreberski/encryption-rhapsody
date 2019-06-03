@@ -1,5 +1,5 @@
 interface IFile {
-    id: number
+    id: string
     name: string
     size: number
     progress: number

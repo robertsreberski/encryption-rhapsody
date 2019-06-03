@@ -1,7 +1,5 @@
 interface AppState {
     publicKey?: string
-    privateKey?: string
-    server?: IServer
     files: IFileState
 }
 

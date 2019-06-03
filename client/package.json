@@ -16,6 +16,7 @@
     "electron-webpack": "^2.6.2",
     "node-rsa": "^1.0.5",
     "polished": "^3.3.2",
+    "progress-stream": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loading": "^2.0.3",
@@ -26,10 +27,12 @@
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "styled-components": "^4.2.0",
-    "through2": "^3.0.1"
+    "through2": "^3.0.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/node-rsa": "^1.0.0",
+    "@types/progress-stream": "^2.0.0",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
     "@types/react-redux": "^7.0.9",

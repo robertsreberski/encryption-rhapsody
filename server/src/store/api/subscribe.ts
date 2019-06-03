@@ -11,7 +11,7 @@ export const subscribeToClients = (store: Store) => {
         commitClient({
           id,
           ip: socket.remoteAddress!,
-          port: socket.remotePort!,
+          port: socket.remotePort! + 1,
           publicKey: publicKey.toString(),
         })
       )

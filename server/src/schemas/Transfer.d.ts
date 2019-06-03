@@ -10,8 +10,8 @@ interface ITransfer {
 
 interface ITransferMeta {
   mode: string
-  key: Buffer
-  iv: Buffer
+  key: string
+  iv: string
   fileMetadata: {
     name: string
     size: number

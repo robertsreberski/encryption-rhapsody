@@ -42,7 +42,7 @@ export const encrypt: (
   piped.pipe(cipher).pipe(output)
 
   return {
-    key: key.toString('utf-8'),
-    iv: iv.toString('utf-8'),
+    key: key.toString('hex'),
+    iv: iv.toString('hex'),
   }
 }

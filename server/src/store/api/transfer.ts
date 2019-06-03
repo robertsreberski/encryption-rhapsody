@@ -4,7 +4,7 @@ export namespace TransferApi {
   import ReadStream = NodeJS.ReadStream
   export const sendFile: (
     client: IClient,
-    data: { stream: { data: ReadStream; size: number }; encryptedKey: Buffer; _file: IFile }
+    data: { stream: { data: ReadStream; size: number }; encryptedKey: string; _file: IFile }
   ) => void = (client, data) => {
     const socket = net.connect(client.port, client.ip, () => {
       const meta: ITransferMeta = {

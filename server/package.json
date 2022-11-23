@@ -28,7 +28,7 @@
     "redux-logger": "^3.0.6",
     "reselect": "^4.0.0",
     "simple-peer": "^9.3.0",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "socket.io-client": "^2.2.0",
     "styled-components": "^4.2.0",
     "utf-8-validate": "^5.0.2"

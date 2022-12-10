@@ -15,7 +15,7 @@
   "dependencies": {
     "bufferutil": "^4.0.1",
     "electron-webpack": "^2.6.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-rsa": "^1.0.5",
     "polished": "^3.3.2",
     "progress-stream": "^2.0.0",
